@@ -1,3 +1,5 @@
 # Supermercado Game Repo
 
-Este é o reposítório do projeto Supermercado Game
+Este Ã© o repositÃ³rio do projeto Supermercado Game
+
+![Imagem capa do supermercado game](capa.png)
