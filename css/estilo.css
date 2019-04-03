@@ -1,0 +1,1400 @@
+html, body,  applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,time, mark, audio, video  {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+   	outline: 0!important;
+}
+
+html,body{
+	font-family: Arial, Helvetica, sans-serif !important;
+    -moz-user-select: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    /*touch-action: none;*/
+}
+body{
+	 
+}   
+html{    
+    /*background: url(../img/background.jpg);*/
+    background-color: #4fb776;
+} 
+div{
+	color: #777;
+    -moz-user-select: none;
+    /*-moz-user-select: text;
+    -moz-user-select: all;*/
+
+    -webkit-user-select: none;
+   /* -webkit-user-select: text;
+   -webkit-user-select: all;*/
+
+    -ms-user-select: none;
+    /*-ms-user-select: text;
+    -ms-user-select: all;*/
+    -ms-user-select: element;
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+@font-face {
+    font-family: tituSuper;
+    src: url(../css/fonts/OstrichSansInline-Regular.otf);
+}
+@font-face {
+    font-family: tituGame;
+    src: url(../css/fonts/Jura-Regular.otf);
+}
+@font-face {
+    font-family: credito;
+    src: url(../css/fonts/SHPinscher-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../css/icons/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../css/icons/MaterialIcons-Regular.woff2) format('woff2'),
+    url(../css/icons/MaterialIcons-Regular.woff) format('woff'),
+    url(../css/icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.alinhaV{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#linhaTitu{
+    position: absolute;
+    transition: 0.5s;
+    width: 0%;
+    height: 155px;
+    background: #53585c;
+    top: 140px;
+}
+#boxTxtTituloIni{
+    position: absolute;
+    width: 456px;
+    left: 50%;
+    margin-left: -222px;
+    top: -36px;
+}
+#tituSuper{
+    font-family: tituSuper;
+    font-size: 105px;
+    color: #3aa561;
+    float: left;
+    /*-webkit-filter: blur(12px);
+    filter: blur(12px);*/
+    transition: 0.5s;
+    opacity: 0;
+}
+#tituGame{
+    font-family: tituGame;
+    font-size: 60px;
+    color: #4ab372;
+    float: right;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    transition: 0.5s;
+    opacity: 0;
+}
+span{
+	color: #777;
+}
+input{
+	color: #777;
+	outline: 0!important;    
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+button{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	color: #666;
+    background: none;
+	font-family: Arial, Helvetica, sans-serif!important;
+}
+.headGreen{
+	background: #4fb776!important;
+}
+.button{
+	background: #BBB;
+	border: 1px solid #AAA;
+	padding: 5px;
+	font-weight: bold;
+	color: #555;
+}
+#all{
+    transform-origin: 50% 0;
+	position: absolute;
+	width: 1000px;
+	height: 700px;
+	left: 50%;
+	margin-left: -500px;
+	top: 0px;
+	overflow: hidden;
+    webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tela{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#btMute{
+    background: url(../img/btn_sound1.png);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 75px;
+    height: 75px;
+    z-index: 11;
+}
+
+.erroRotacao{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#imgErro{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    width: 20%;
+    margin-left: -10%;
+}
+#estrelas{
+    display: none;
+    position: absolute;
+    bottom: 525px;
+    left: 215px;
+    z-index:10;
+}
+#estrelas div{
+    float: left;
+    width: 59px;
+    height: 56px;
+    margin-right: -1px;
+    background:url(../img/slot_estrela1.png); 
+    position: relative;
+}
+#estrelas div+div{
+    width: 52px;
+    background:url(../img/slot_estrela2.png); 
+}
+#estrelas div:last-child{
+    width: 51px;
+    background:url(../img/slot_estrela3.png); 
+}
+
+#estrelas div img{
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    -webkit-user-drag: none;
+}
+#estrelas div+div img{
+    position: absolute;
+    left: -7px;
+    -webkit-user-drag: none;
+}
+
+
+/********************** TELA INICAL ***************************/
+
+#telaInicial{
+    background: url(../img/background.jpg);
+    z-index: 0;
+}
+
+
+#titulo{
+    position: absolute;
+    top: 20px;
+    left: 180px;
+}
+
+#btIniciar{
+    /*background: url(../img/btn_play.png);*/
+    position: absolute;
+    top: 410px;
+    left: 590px;
+    width: 105px;
+    height: 100px;
+    cursor: pointer;
+    transition: 0.3s; 
+}
+
+#inicio_professor{
+    position: absolute;
+    bottom: -60px;
+    left: 180px;
+}
+
+#msgInicio{
+    top: 46px;
+    left: 27px;
+    width: 261px;
+    font-size: 40px;
+    color: #6df;
+    text-align: center;
+    position: absolute;
+    display: block;
+    transition: 0.3s; 
+}
+
+#balao_inicio{  
+    top: 205px;
+    left: 485px;
+}
+/*************** caixa avisos ****************/
+.boxAviso{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    top: -70px;
+    z-index: 1000;
+    padding: 5px;
+    background: #5ddc8d;
+    border: 3px solid #50ba78;
+    border-radius: 10px;
+    left: 50%;
+    margin-left: -100px;
+    transition: 0.5s;
+}
+.boxAviso div{   
+    background: #52bb7a;
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    position: absolute;
+}
+.boxAviso div i{
+    color: white;
+    font-size: 35px;
+    margin: 3px;
+}
+.boxAviso span{
+    width: 90%;
+    font-size: 20px;
+    color: #7c827e;
+    text-align: center;
+    position: absolute;
+    bottom: 28px;
+    right: 0;
+}
+.boxAviso span+span{
+    font-size: 18px;
+    color: #429c64;
+    bottom: 6px;
+}
+/********************** TELA GAME ***************************/
+
+#telaGame{
+    /*background: url(../img/bgMercado.jpg) no-repeat center center fixed;   */ 
+    background: url(../img/bgMercado.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+    display: none;
+}
+#boxTxtTituloIni{
+
+}
+#tituIni{
+
+}
+#somDiv{
+    /*background: url(../img/som_1.png);*/
+    position: absolute;
+    top: -180px;
+    left: 32px;
+    width: 302px;
+    height: 323px;
+}
+#btSom{
+    position: absolute;
+    top: 147px;
+    left: 0px;
+    width: 307px;
+    height: 177px;
+}
+.cordasSom{
+    position: absolute;
+    background-image: url(../img/corda.png);
+    width: 26px;
+    height: 150px;
+    bottom: 75px;
+    left: 48px;
+}
+#btDefult{
+    position: absolute;
+    bottom: 0;
+}
+#imgSomC{
+    display: none;
+    position: absolute;
+    bottom: 0;
+}
+#fundoSomN{
+    position: absolute;
+    bottom: 37px;
+    left: 30px;
+}
+
+.item{
+    position: absolute;
+    top: -65px;
+}
+
+#item0{
+    left: 215px;
+}
+#item1{
+    right: 457px;
+}
+#item2{
+    left: 870px;
+}
+.corda{
+    background: url(../img/corda.png);
+    position: absolute;
+    top: 0px;
+    left: -13px;
+    width: 26px;
+    height: 250px;
+}
+.item .img{
+    position: absolute;
+    top: 243px;
+    left: -182px;
+}
+.selectsI{
+    position: absolute;
+    top: 228px;
+    left: -194px;
+    -webkit-user-drag: none;
+    display: none;
+}
+#imgSele{
+    z-index: 5
+}
+#imgC, #imgE{
+    z-index: 5
+}
+.opc{
+    background: url(../img/box.png);
+    position: absolute;
+    top: 227px;
+    left: -193px;
+    width: 301px;
+    height: 558px;
+    cursor: pointer;
+    z-index: 3;
+}
+.result{
+    position: absolute;
+    top: 477px;
+    left: -49px;
+}
+
+#or{    
+    background: url(../img/or.png);   
+    position: absolute;
+    top: 300px;
+    left: 440px;
+    width: 103px;
+    height: 55px;
+    transition: 0.0s; 
+}
+
+/*#btCheck{
+    background: url(../img/btn_corrigir2.png);   
+    position: absolute;
+    top: 465px;
+    left: 432px;
+    width: 123px;
+    height: 123px;
+    z-index: 10;
+}*/
+#tenteNova{
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    margin-left: -255.5px;
+    top: -120px;
+}
+/********************** TELA RESULTADO ***************************/
+
+#telaResultado{
+    z-index: 2;
+    background: url(../img/background.jpg);
+}
+
+#resultado_topo{
+    position: absolute;
+    top: 20px;
+    left: 280px;
+}
+
+#resultado_professor{
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    margin-left: -206px;
+    z-index: 20;
+}
+
+#balao_fim{  
+    top: 200px;
+    left: 460px;
+}
+
+.balao{    
+    background: url(../img/balao_branco.png);
+    position: absolute;
+    width: 318px;
+    height: 239px;
+    transform-origin: 00% 100%;
+}
+
+#telaResultado span{
+    position: absolute;
+    display: block;
+    transition: 0.3s; 
+}
+
+#voceAcertou{
+    top: 44px;
+    left: 27px;
+    width: 200px;
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+}
+#resultado_num{
+    top: 68px;
+    left: 136px;
+    width: 50px;
+    font-size: 70px;
+    color: #6df;
+    text-align: right;
+}
+#resultado_max{
+    top: 68px;
+    left: 187px;
+    width: 100px;
+    font-size: 70px;
+    color: #fff;
+    text-align: left;
+}
+#resultado_text{
+    top: 145px;
+    left: 17px;
+    width: 300px;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+#replay{
+    background: url(../img/btn_retry.png);
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 105px;
+    height: 100px; 
+    cursor: pointer;
+    z-index: 20;
+}
+#seta{
+    position: absolute;
+    display: none;
+    z-index: 10;
+}
+#atencaoSom{
+    position: absolute;
+    bottom: 0px;
+    display: none;
+}
+
+/***** tutorial *****/
+#caixaMaos{
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 12px;
+    left: 0px; 
+}  
+.maos{
+    position: absolute;
+}
+#maoTuto1{
+    display: none;
+}
+
+/*** bandeiras ****/
+.bandeiras{
+    position: absolute;
+    top: -250px;
+    width: 1000px;
+    height: 200px;
+}
+#bandeira0{
+    background-image: url(../img/bandeiras/bandeiras_1.png);
+    left: 0;
+    transition:0.4s;
+}
+#bandeira1{
+    background-image: url(../img/bandeiras/bandeiras_2.png);
+    right: 0;
+    transition:0.6s;
+}
+/*************** Novo css *******************/
+/************** tela inicial ****************/
+#boxPontos{
+    color: white;
+    position: absolute;
+    width: 275px;
+    height: 75px;
+    background: #5ddc8d;
+    right: -280px;
+    top: 15px;
+    z-index: 15;
+    border-radius: 10px 0px 0px 10px;
+    border: 2px solid #4fb776;
+    border-right: none;
+    transition: 0.5s;
+
+}
+#boxPontos i{
+    font-size: 35px;
+    float: left;
+    margin: 0px 10px;
+}
+#pPageInicial{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    float: left;
+    margin: 4px 0px;
+}
+#boxPontos span{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    float: left;
+}
+.btInicio{
+    margin-left: -150px;
+    border-radius: 10px; 
+    background: #5ddc8d;
+    position: absolute;
+    cursor: pointer;
+    width: 300px;
+    height: 50px;
+    color: white;    
+    left: 50%;
+    transition:0.5s;    
+    border: 2px solid #4fb776;
+    -ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.btInicio:hover{
+    background: #4fb776;
+}
+.btInicio i:hover{
+    transition:0.5s;
+    transform:scale(1.2);
+}
+.btInicio span{
+    font-size: 25px;
+    color: white;
+    width: 100%;
+    position: absolute;
+    height: 50px;
+    text-align: center;
+}
+.btInicio i{
+    transition: 0.5s;
+    transform: scale(1);
+    position: absolute;
+    font-size: 30px;
+}
+.btInicio .i2{
+    right: 0;
+}
+/*#btI0 i+span+i{
+    float: right!important;
+}*/
+#btI0{
+    bottom: 160px; 
+}
+/*#btI0 span{   
+    margin: 10px 65px; 
+}*/
+#btI0 i{    
+    margin: 10px 10px;
+}
+#btI1{
+    bottom: 95px;
+}
+/*#btI1 span{   
+    margin: 10px 35px; 
+}*/
+#btI1 i{    
+    margin: 10px 10px;
+}
+#btI2{
+    bottom: 30px;
+}
+/*#btI2 span{   
+    margin: 10px 53px; 
+}*/
+#btI2 i{    
+    margin: 10px 10px;
+}
+/****************** tela fases ******************/
+#modalFase, #modalLista, #modalCarrinho, #modalProduto, #modalcreditos, #modalTutorial, #modalAvisoFases, #modalAvisoProxF, #modalAvisoDin{
+    display: none;
+}
+#txtInBox{
+    color: white;
+    font-size: 42px;
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-top: 85px;
+}
+#modalAvisoFases #textLista, #modalAvisoProxF #textLista{
+    font-size: 35px;
+    /*width: 540px;*/
+    text-align: center;
+    top: 215px;
+}
+#modalAvisoDin #textLista{
+    top: 227px;
+    /*margin-left: -130px;*/
+    font-size: 60px;
+}
+#modalAvisoFases i, #modalAvisoProxF i, #modalAvisoDin i{
+    top: 260px;
+}
+#modalAvisoFases #boxModal, #modalAvisoProxF #boxModal, #modalAvisoDin #boxModal{
+    top: 310px;
+    height: 215px;
+}
+.btsD{
+    text-align: center;
+    padding: 18px;
+    width: 30%;
+    float: left;
+    background: #4fb776;
+    color: white;
+    font-size: 26px;
+    margin: 70px 50px;
+    cursor: pointer;
+}
+.btsD:hover{
+   background: #2f6b45; 
+}
+#textFase, #textLista, #textCarrinho{
+    color: white;
+    font-size: 50px;
+    left: 50%;
+    width: 635px;
+    top: 110px;
+    margin-left: -317px;
+    text-align: center;
+    position: absolute;
+}
+.btSair{
+    color: white;
+    position: absolute;
+    right: 115px;
+    font-size: 45px!important;
+    top: 130px;
+    cursor: pointer;
+}
+.boxModais{
+    background: rgba(14, 14, 14, 0.84);
+    position: fixed;    
+    width: 1000px;
+    height: 700px; 
+    z-index: 100;  
+    top: 0;    
+}
+#boxModal, #boxCreditos, #boxTutorial{
+    width: 700px;
+    height: 500px;
+    background: #5ddc8d;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    margin-left: -350px;
+    top: 170px;
+    overflow: auto;
+}
+#boxModal::-webkit-scrollbar, #boxCreditos::-webkit-scrollbar {
+    width: 12px;
+} 
+#boxModal::-webkit-scrollbar-track, #boxCreditos::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+    margin: 10px 15px;
+} 
+#boxModal::-webkit-scrollbar-thumb, #boxCreditos::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+#boxTutorial{
+    width: 920px;
+    height: 620px; 
+    margin-left: -460px;
+    top: 41px;
+    overflow: hidden;
+}
+.imgsTuto{
+    float: left;
+    width: 100%;
+    margin: 5px 0px;
+}
+#boxRetTuto{
+    float: left;
+    width: 920px;
+    height: 620px;
+    overflow-y: scroll;
+    margin-left: 0px;
+}
+#boxCreditos{    
+    height: 300px;
+}
+#boxCreditos span{
+    font-family: credito;
+    font-size: 20px;
+    text-align: center;
+    float: left;
+    width: 94%;
+    color: #3d7534;
+    margin: 25px 20px;
+}
+#boxModal table{
+    width: 650px;
+    position: absolute;
+    margin: 10px 22px;
+}
+#boxModal table tr{
+    width: 100%;
+    color: white;
+    background: #a7b597;
+    cursor: pointer;
+}
+#boxModal table tr:nth-child(even) {
+    background: #899879;
+    color: white;
+}
+#boxModal table tr:nth-child(1) td{    
+    color: white!important;
+}
+#boxModal table tr:nth-child(1) td+td{    
+    font-weight: bold;
+}
+#boxModal table tr td, #boxModal table tr th{
+    font-size: 22px;
+    text-align: center;
+    padding: 8px;
+}
+#boxModal table tr th{
+    /*background: #4fb776;*/
+}
+/*********************** tela supermercado *********************/
+#telaSuperm{
+    background: url(../img/bgCat.jpg) no-repeat center center;    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1; 
+}
+#BoxMsgCaixa{
+    position: absolute;
+    width: 100%;
+    background: rgba(24, 24, 25, 0.921);
+    height: 110px;
+    top: 227px;    
+    left: 0;
+    z-index: 10;
+    display: none;
+}
+#BoxMsgCaixa span{
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+#MsgCaixaMaior{
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+#MsgCaixaMenor{
+    font-size: 20px;
+    color: #e6e3e3;
+}
+.btIfSuper{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background: #5ddc8d;
+    color: white;
+    left: 5px;
+    border: 2px solid #4fb776;
+    border-radius: 5px;
+}
+.btIfSuper:hover{
+    background: #4fb776;
+}
+.btIfSuper i{
+    font-size: 40px;
+    margin: 5px;
+}
+#btListaP{
+    top: 10px;
+}
+#btCarrinhoP{
+    top: 70px;
+}
+#btListaF{
+    top: 133px;
+}
+#boxValorTC{
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background: #5ddc8d;
+    right: 150px;
+    top: 27px;
+    border-radius: 7px;
+}
+#boxValorTC span{
+    color: #575b5f;
+    font-size: 18px;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+#valorTC, #valorSeuD{
+    color: white!important;
+    font-weight: bold;
+    font-size: 25px!important;
+}
+.btsCate{
+    position: absolute;
+    cursor: pointer;
+    background: #5ddc8d;
+    color: white;
+    width: 250px;
+    height: 55px;
+    border: 5px solid #4fb776;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.8;
+}
+.btsCate:hover{
+    background: #4fb776;
+}
+#cate0{
+    top: 200px;
+    left: 190px;
+}
+#cate1{
+    top: 200px;
+    left: 550px;
+}
+#cate2{
+    top: 300px;
+    left: 190px;
+}
+#cate3{
+    top: 300px;
+    left: 550px;
+}
+#cate4{
+    top: 400px;
+    left: 370px;
+    display: none;
+    transition: 2s;
+    animation-name: atencao;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2.5s;
+    -webkit-animation-name: atencao;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 2.5s;
+    -moz-animation-name: atencao;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-duration: 2.5s;
+}
+@keyframes atencao {
+    0%   {transform:rotate(0deg);-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);}
+    25%  {transform:rotate(10deg);-webkit-transform:rotate(10deg);-moz-transform:rotate(10deg);}
+    50%  {transform:rotate(-10deg);-webkit-transform:rotate(-10deg);-moz-transform:rotate(-10deg);}
+    75%  {transform:rotate(10deg);-webkit-transform:rotate(10deg);-moz-transform:rotate(10deg);}
+    100% {transform:rotate(0deg);-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);}
+}
+/********************** modal lista ******************/
+#textLista{
+    top: 95px;
+    /*margin-left: -270px;*/
+}
+/******************** modal carrinho *******************/
+.btRemoP{
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+#textCarrinho{
+    top: 100px;
+    /*margin-left: -260px;*/
+}
+/******************** prateleiras **********************/
+.prateleiras{
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    background: url(../img/GroceryShelfEmpty.jpg);
+    left: 1000px;
+    transition:0.5s;
+}
+.linhas{
+    height: 140px;
+    width: 800px;
+    position: absolute;   
+    left: 100px;
+    top: 175px;
+    text-align: center;
+}
+.linhas img{ /* imagens tiradas do supermercado extra */
+    height: 100%; 
+    cursor: pointer;
+}
+#linha0{
+    top: 0px;
+}
+#linha1{
+    top: 175px;
+}
+#linha2{
+    top: 345px;
+}
+#linha3{
+    top: 520px;
+}
+/********** tela produtos ***********/
+.boxFoto{
+    width: 400px;
+    height: 280px;
+    background: aliceblue;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    background: rgb(255, 255, 255);
+    border: 2px solid #5ddc8d;
+    border-radius: 5px;
+    top: 20px;
+}
+.boxFoto img{
+    margin: 0px 60px;
+    height: 100%;
+}
+.boxDescri, .boxNomeP{
+    overflow-y: auto;
+}
+.boxDescri::-webkit-scrollbar, .boxNomeP::-webkit-scrollbar {
+    width: 12px;
+} 
+.boxDescri::-webkit-scrollbar-track, .boxNomeP::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+    margin: 10px 15px;
+} 
+.boxDescri::-webkit-scrollbar-thumb, .boxNomeP::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.boxDescri, .boxPreco, .boxQtd, .btAddCar, .boxNomeP{
+    width: 400px;
+    height: 110px;
+    background: #2cb15e;/*#5ddc8d;*/
+    border: 2px solid #4fb776;
+    border-radius: 5px;
+    color: white;
+    position: absolute;
+    top: 384px;
+    left: 50%;
+    margin-left: -200px;
+}
+.boxDescri span, .boxPreco span, .boxQtd span, .boxNomeP span{
+    color: white;
+    width: 90%;
+    float: left;
+    font-size: 20px;
+    margin: 0px 10px;
+    margin-top: 4px;
+}
+.boxDescri span+span, .boxPreco span+span, .boxQtd span+span, .boxNomeP span+span{
+    color: white;
+    width: 90%;
+    margin: 0 20px;
+    float: left;
+    font-size: 17px;
+}
+.boxNomeP{
+    top: 318px!important;
+    height: 55px!important;
+}
+.boxPreco{
+    height: 55px!important;
+    top: 506px!important;
+}
+.boxPreco span+span{
+    text-align: right!important;
+    font-size: 23px!important;
+}
+.boxQtd{
+    height: 55px!important;
+    top: 573px!important;
+}
+.boxQtd input{
+    float: right;
+    margin: -3px 20px;
+    border: none;
+    width: 70px;
+    height: 22px;
+    font-size: 19px;
+    color: white;
+    background: #4fb776;
+    padding-left: 8px;
+}
+.btAddCar{
+    height: 40px!important;
+    top: 640px!important;
+    text-align: center;
+    font-size: 25px;
+    line-height: 1.7;
+    cursor: pointer;
+}
+.btAddCar:hover{
+    background: #4fb776;
+}
+#modalProduto .btSair{
+    right: 240px!important;
+    top: 12px!important; 
+}
+.btVPrat{
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    bottom: 12px;
+    height: 50px;
+    width: 130px;
+    border-radius: 0 10px 10px 0;
+    background: #5ddc8d;
+    border: 5px solid #4fb776;
+    cursor: pointer;
+}
+.btVPrat:hover{
+     background: #4fb776;
+}
+.btVPrat i{
+    font-size: 35px;
+    margin: 5px 0px;
+    float: left; 
+}
+.btVPrat span{
+    color: white;
+    margin: 10px 0px;
+    float: left;
+}
+
+/************* modal final *****************/
+#modalFinal{display: none;}
+#modalFinal .btSair{
+    top: 235px;
+}
+#textFinal{
+    color: white;
+    font-size: 55px;
+    left: 50%;
+    top: 205px;
+    margin-left: -172px;
+    position: absolute;
+}
+#txtFinal{
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    float: left;
+    margin-top: 33px;
+}
+#txtTroco{
+    color: #2a6947;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    float: left;
+    margin-top: 5px;
+}
+#ptFinal{
+    color: #33794e;
+    font-size: 30px;
+}
+.boxFinal{
+    height: 180px!important;
+    top: 280px!important;
+    padding: 20px;
+    width: 655px!important;
+}
+/****************** tela caixa *********************/
+#telaCaixa{
+    background: url(../img/maxresdefault.jpg) no-repeat center center;    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1; 
+    display: none;
+    transform-origin: 50% 0;
+    width: 1000px;
+    height: 700px;
+}
+.boxPagamento{
+    position: absolute;
+    bottom: 0px;
+    background: #5ddc8d;
+    border-top: 2px solid #4fb776;
+    height: 267px;
+    width: 100%;    
+}
+.boxCedulas, .boxMoedas{
+    position: absolute;
+    left: 0;
+    width: 500px;
+    top: -40px;
+}
+.cedulas, .moedas{
+    transform: scale(0.6);
+    position: absolute;
+    z-index: 20;
+    cursor: pointer;
+   /* margin: -20px -25px;*/
+}
+#areaDAD{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.5s;
+    top: 270px;
+}
+#areaDrop{
+    position: absolute;
+    width: 100%;
+    height: 430px;
+}
+#ced0{
+    top: 435px;
+    left: -9px;
+}
+#ced1{
+    top: 515px;
+    left: -17px;
+}
+#ced2{
+    top: 595px;
+    left: -25px;
+}
+#ced3{
+    top: 435px;
+    left: 120px;
+}
+#ced4{
+    top: 515px;
+    left: 120px;
+}
+#ced5{
+    top: 595px;  
+    left: 120px;
+}
+.boxMoedas{
+    left: 405px;
+}
+/*.boxMoedas img{
+    transform: scale(0.6);
+    position: absolute;
+}*/
+#moe0{
+    top: 450px;
+    left: 406px;
+}
+#moe1{
+    top: 450px;
+    left: 580px;
+}
+#moe2{
+    top: 520px;
+    left: 485px;
+}
+#moe3{
+    top: 595px;
+    left: 410px;
+}
+#moe4{
+    top: 580px;
+    left: 560px;
+}
+.separadorVC{
+    position: absolute;
+    width: 3px;
+    height: 150px;
+    background: #4fb776;
+    border-radius: 30px;
+    top: 65px;
+}
+#svc0{
+    left: 377px;
+}
+#svc1{
+    left: 705px;
+}
+.boxMeuDinheiro{
+    position: absolute;
+    right: 0;
+}
+.boxMeuDinheiro span{
+    position: absolute;
+    width: 250px;
+    right: 20px;
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    top: 105px;
+}
+.boxMeuDinheiro span+span{        
+    font-size: 30px;
+    top: 150px;
+    text-align: center;
+    background: #4fb776;
+    border-radius: 20px;
+}
+#boxBtPagamento{
+    position: absolute;
+    right: 15px;
+    width: 60px;
+    height: 55px;
+    top: -52px;
+    background: #5ddc8d;
+    border-top: 3px solid #4fb776;
+    border-radius: 5px 5px 0 0;
+    color: white;
+    cursor: pointer;
+}
+#boxBtPagamento i{
+    font-size: 32px;
+    margin: 8px 14px;
+}
+.boxFeedPreco{
+    position: absolute;
+    right: -2px;
+    width: 250px;
+    height: 80px;
+    background: #5ddc8d;
+    border: 2px solid #4fb776;
+    border-radius: 10px 0 0 10px;
+    top: 15px;
+}
+#boxFeedT{
+    margin-top: 3px;
+}
+.boxFeedPreco div{
+	float: left;
+    width: 100%;
+    margin: 1px 0px;
+}
+.boxFeedPreco div span{
+	color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0px 10px;
+    float: left;
+}
+.boxFeedPreco div span+span{
+    float: right;
+    color: white;
+    font-size: 34px;
+}
+
+.avisoDin{
+    float: left!important;
+    margin: 0 13px!important;
+    width: auto!important;
+    color: #485638!important;
+    display: none;
+}

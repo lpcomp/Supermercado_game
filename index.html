@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">  
+	<head>
+		<meta charset="UTF-8" />
+		<meta id="viewport" name="viewport" content="user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+		<title>Supermercado Game</title>	
+		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+		<!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+		
+
+	</head>
+	<body >
+		<div id="loadArea" >
+		</div>
+		<div id="erroRotacao">
+	 		<img id="imgErro" src="img/girar1.png" />
+	 	</div>
+	 	<div id="all">
+	 		<div id="loadingAnim" style="width:100%;height:100%;background-color: #5ddc8d;"><img width="250" style="position: absolute;left: 50%;top: 50%;margin-top: -125px;margin-left: -125px;" src="img/protecao_loading.png"/><img width="215" style="position: absolute;left: 50%;top: 50%;margin-top: -107px;margin-left: -107px;" src="img/loading.gif"/></div>	 		
+
+	 		<div class="boxAviso">
+	 			<div><i class="material-icons">check</i></div>
+	 			<span>Você ganhou</span>
+	 			<span>200 Pontos!</span>
+	 		</div>
+
+	 		<div id="telaGame" class="tela" >	 			
+
+	 			<div id="boxPontos">
+	 				<span style="width: 100%;margin-top: 8px;margin-left: 10px;">Seus pontos</span>
+	 				<i class="material-icons">stars</i>
+	 				<span id="pPageInicial">Pontos: 1000000</span>	 				
+ 				</div>
+
+ 				<div id="linhaTitu">
+ 					<div id="boxTxtTituloIni">
+	 					<span id="tituSuper">
+	 						Supermercado
+	 					</span>
+	 					<span id="tituGame">
+	 						Game
+	 					</span>
+	 				</div>
+ 				</div>	 				
+
+ 				<div id="btI0" class="btInicio" onclick="abrirModalFases();">
+ 					<i class="material-icons">videogame_asset</i>
+ 					<span class="alinhaV">Jogar</span>
+ 					<i class="material-icons i2">videogame_asset</i>
+				</div>
+ 				<div id="btI1" class="btInicio" onclick="chamarTutorial();">
+ 					<i class="material-icons">help</i>
+ 					<span class="alinhaV">Como jogar</span>
+ 					<i class="material-icons i2">help</i>
+				</div>
+ 				<div id="btI2" class="btInicio" onclick="chamarCredito()">
+ 					<i class="material-icons">description</i>
+ 					<span class="alinhaV">Créditos</span>
+ 					<i class="material-icons i2">description</i>
+ 				</div>	 			
+
+	 			<button id="btCheck" onclick="check()" ></button>
+	 		</div>
+
+	 		<div id="modalFase" class="boxModais">
+	 			<span id="textFase">Fases</span>
+	 			<i class="material-icons btSair" onclick="fecharTela('modalFase');">cancel</i>
+	 			<div id="boxModal" class="tabFases">
+	 				<table cellspacing="0" cellpadding="0">	 					
+	 					 					
+	 				</table>
+	 			</div>
+	 		</div>
+
+	 		<div id="telaSuperm" class="tela">	 		
+	 			<div id="BoxMsgCaixa">
+	 				<span id="MsgCaixaMaior" style="margin-top: 20px;">VOCÊ CONCLUIU O SEU OBJETIVO</span>
+	 				<span id="MsgCaixaMenor">Vá para o caixa pagar suas compras</span>
+	 			</div>
+
+	 			<div id="btListaP" class="btIfSuper" onclick="abrirLista()"><i class="material-icons">assignment</i></div>
+	 			<div id="btCarrinhoP" class="btIfSuper" onclick="abrirCarrinho()"><i class="material-icons">local_grocery_store</i></div>
+	 			<div id="btListaF" class="btIfSuper" onclick="$('#modalAvisoFases').fadeIn();"><i class="material-icons">list</i></div>
+	 			<div id="cate0" class="btsCate" onclick="abreSessaoP('mercearia');">Mercearia</div>
+	 			<div id="cate1" class="btsCate" onclick="abreSessaoP('limpeza');">Limpeza</div>
+	 			<div id="cate2" class="btsCate" onclick="abreSessaoP('higiene');">Higiene</div>
+	 			<div id="cate3" class="btsCate" onclick="abreSessaoP('pereciveis');">Perecíveis</div>
+	 			<div id="cate4" class="btsCate" onclick="abreCaixa();">Caixa</div>
+
+	 			<div class="prateleiras">
+	 				<div id="linha0" class="linhas">
+	 					<!--img onclick="abreProduto('feijao');" src="img/produtos/487241x200x200.png" />
+	 					<img src="img/produtos/487241x200x200.png" />
+	 					<img src="img/produtos/487241x200x200.png" />
+	 					<img src="img/produtos/487241x200x200.png" />
+	 					<img src="img/produtos/487241x200x200.png" /-->
+	 				</div>
+	 				<div id="linha1" class="linhas"></div>
+	 				<div id="linha2" class="linhas"></div>
+	 				<div id="linha3" class="linhas"></div>
+	 				<div class="btVPrat" onclick="fechaPrateleira();"><i class="material-icons">chevron_left</i><span>Voltar</span></div>
+	 			</div>
+	 		</div>
+
+	 		<div id="telaCaixa" class="tela" onmousemove="moveObj(event)" onmouseup="soltaObj(this)" onselectstart="return false;" ondrop="drop(event)" ondragover="allowDrop(event)">
+	 			<div class="boxFeedPreco">
+	 				<div id="boxFeedT"><span>Total a pagar</span><span id="dinPago">100,00</span></div>
+	 				<!--div><span>Pago</span><span id="dinPago">0,00</span></div-->
+	 			</div>
+
+	 			<div id="areaDAD">
+	 				<div id="areaDrop"></div>
+ 
+	 				<img id="ced0" class="cedulas" src="img/dinheiro/notaDe2.png" valorD="2" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)" />
+ 					<img id="ced1" class="cedulas" src="img/dinheiro/notaDe5.png" valorD="5" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+ 					<img id="ced2" class="cedulas" src="img/dinheiro/notaDe10.png" valorD="10" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+ 					<img id="ced3" class="cedulas" src="img/dinheiro/notaDe20.png" valorD="20" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+ 					<img id="ced4" class="cedulas" src="img/dinheiro/notaDe50.png" valorD="50" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+ 					<img id="ced5" class="cedulas" src="img/dinheiro/notaDe100.png" valorD="100" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+
+ 					<img id="moe0" class="moedas" src="img/dinheiro/moeda5.png" valorD="0.05" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+ 					<img id="moe1" class="moedas" src="img/dinheiro/moeda10.png" valorD="0.10" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+ 					<img id="moe2" class="moedas" src="img/dinheiro/moeda25.png" valorD="0.25" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+ 					<img id="moe3" class="moedas" src="img/dinheiro/moeda50.png" valorD="0.50" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+ 					<img id="moe4" class="moedas" src="img/dinheiro/moeda1.png" valorD="1" ondrag="moveObj(true)" onmousedown="pegaObj(this)" ondragstart="allowDrop(event)"/>
+
+ 					<div class="boxPagamento">
+		 				<div id="boxBtPagamento" onclick="abreCarteira();">
+		 					<i class="material-icons">monetization_on</i>
+		 				</div>
+		 				<div class="boxCedulas"></div> 					
+
+		 				<div id="svc0" class="separadorVC"></div>
+
+		 				<div class="boxMoedas"></div> 					
+
+		 				<div id="svc1" class="separadorVC"></div>
+		 				<div class="boxMeuDinheiro"><span>Quanto tenho</span><span>35,00</span></div>
+	 				</div>
+	 			</div>
+	 			
+	 		</div>
+
+	 		<div id="modalAvisoProxF" class="boxModais">
+	 			<span id="textLista">Deseja continuar para próxima fase?</span>
+	 			<!--i class="material-icons btSair" onclick="fecharTela('modalAvisoProxF');">cancel</i-->
+	 			<div id="boxModal" class="tabListas">
+	 				<div class="btsD" onclick="$('#telaCaixa').fadeOut();abrirFase(Number(nDaFase)+1);fecharTela('modalAvisoProxF');">SIM</div>
+	 				<div class="btsD" onclick="$('#telaCaixa').fadeOut();$('#telaGame').fadeIn();fecharTela('modalAvisoProxF');">NÃO</div>
+	 			</div>
+	 		</div>
+
+	 		<div id="modalAvisoFases" class="boxModais">
+	 			<span id="textLista">Tem certeza que quer escolher a fase novamente?</span>
+	 			<i class="material-icons btSair" onclick="fecharTela('modalAvisoFases');">cancel</i>
+	 			<div id="boxModal" class="tabListas">
+	 				<div class="btsD" onclick="abrirModalFases();limpandoTudo();$('#telaSuperm').fadeOut();fecharTela('modalAvisoFases');">SIM</div>
+	 				<div class="btsD" onclick="$('#modalAvisoFases').fadeOut();">NÃO</div>
+	 			</div>
+	 		</div>
+
+	 		<div id="modalLista" class="boxModais">
+	 			<div id="boxValorTC">
+	 				<span style="margin-top: 6px;">Seu dinheiro</span>
+	 				<span id="valorSeuD">R$ 999</span>
+	 			</div>
+	 			<span id="textLista">Você precisa comprar</span>
+	 			<i class="material-icons btSair" onclick="fecharTela('modalLista');">cancel</i>
+	 			<div id="boxModal" class="tabListas">
+	 				<table cellspacing="0" cellpadding="0">	 	
+	 									
+	 				</table>
+	 			</div>
+	 		</div>
+
+	 		<div id="modalCarrinho" class="boxModais">
+	 			<div id="boxValorTC">
+	 				<span style="margin-top: 6px;">Preço total</span>
+	 				<span id="valorTC">R$ 999</span>
+	 			</div>
+	 			<span id="textCarrinho">Descrição produto</span>
+	 			<i class="material-icons btSair" onclick="fecharTela('modalCarrinho');">cancel</i>
+	 			<div id="boxModal" class="tabCarrinho">
+	 				<table cellspacing="0" cellpadding="0">	 	
+	 									
+	 				</table>
+	 			</div>
+	 		</div>
+
+	 		<div id="modalProduto" class="boxModais">	 			
+	 			<i class="material-icons btSair" onclick="fecharTela('modalProduto');">cancel</i>
+	 			
+	 				<div class="boxFoto"><img src=""/></div>
+	 				<div class="boxNomeP">
+	 					<span>Nome</span>
+	 					<span></span>
+ 					</div>
+	 				<div class="boxDescri">
+	 					<span>Descrição</span>
+	 					<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mauris velit, malesuada in odio at, vehicula hendrerit dolor. Aenean feugiat at orci vel consectetur.</span>
+ 					</div>
+ 					<div class="boxPreco">
+	 					<span>Preço</span>
+	 					<span>R$ 5,00</span>
+ 					</div>
+ 					<div class="boxQtd">
+	 					<span>Quantidade</span>
+	 					<span class="avisoDin">Você não tem dinheiro suficiente!</span>
+	 					<input type="number" min="0" max="99"/>
+ 					</div>
+ 					<div class="btAddCar" onclick="addCar();">Colocar no carrinho</div>
+	 			
+	 		</div>
+
+	 		<div id="modalAvisoDin" class="boxModais">
+	 			<span id="textLista">Atenção</span>
+	 			<i class="material-icons btSair" onclick="fecharTela('modalAvisoDin');">cancel</i>
+	 			<div id="boxModal" class="tabListas">
+	 				<span id="txtInBox">Você não tem dinheiro suficiente!</span>
+	 			</div>
+	 		</div>	 		
+
+	 		<div id="modalFinal" class="boxModais">
+	 			<span id="textFinal">PARABÉNS!!!</span>
+	 			<i class="material-icons btSair" onclick="fecharTela('modalFinal');chamaFinal();">cancel</i>
+	 			<div id="boxModal" class="boxFinal">
+	 				<span id="txtFinal">Você completou a Fase 1</span>
+	 				<span id="txtTroco">Seu troco é de: </span>
+	 			</div>
+	 		</div>
+
+	 		<div id="modalcreditos" class="boxModais">
+	 			<i class="material-icons btSair" onclick="fecharTela('modalcreditos');">cancel</i>
+	 			<div id="boxCreditos" class="alinhaV">
+	 				<span>
+	 					Universidade Estadual do Rio de Janeiro<br/>Ciência da computação<br/><br/>Desenvolvedores:<br/>Carlos Alexander Pontes Medeiros e Luiz Paulo Baçal de Vasconcelos<br/><br/>Orientadora:<br/>Professora Rosa
+	 				</span>
+	 			</div>
+ 			</div>
+
+ 			<div id="modalTutorial" class="boxModais">
+	 			<i class="material-icons btSair" style="top: 1px;right: 8px;z-index: 10;" onclick="fecharTela('modalTutorial');">cancel</i>
+	 			<div id="boxTutorial" class="alinhaV">
+	 				<div id="boxRetTuto">
+	 					<img class="imgsTuto" src="img/tutorial/tuto1.jpg">
+	 					<img class="imgsTuto" src="img/tutorial/tuto2.jpg">
+	 					<img class="imgsTuto" src="img/tutorial/tuto3.jpg">
+	 					<img class="imgsTuto" src="img/tutorial/tuto4.jpg">
+	 					<img class="imgsTuto" src="img/tutorial/tuto5.jpg">
+	 					<img class="imgsTuto" src="img/tutorial/tuto6.jpg">
+	 					<img class="imgsTuto" src="img/tutorial/tuto7.jpg">
+	 					<img class="imgsTuto" src="img/tutorial/tuto8.jpg">
+	 					<img class="imgsTuto" src="img/tutorial/tuto9.jpg">
+	 				</div>
+	 				
+	 			</div>
+ 			</div>
+
+	 		
+
+	 	</div>
+	</body >
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<!--link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/-->
+	<script type='application/javascript' src='js/fastclick.js'></script>
+	<script src="js/AudioEffect.js"></script>
+	<script src="js/infos.js"></script>
+	<script src="js/main.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</html >
